@@ -1,0 +1,22 @@
+{
+  "name": "web-remote-desktop",
+  "version": "1.0.0",
+  "description": "Control desktop using websocket.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stories2/WebRemoteDesktop.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stories2/WebRemoteDesktop/issues"
+  },
+  "homepage": "https://github.com/stories2/WebRemoteDesktop#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

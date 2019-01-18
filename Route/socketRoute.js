@@ -1,19 +1,24 @@
 exports.clientConnected = function (webSocketContext) {
     global.log.info("socketRoute", "clientConnected", "hello client")
-
-    webSocketContext.on("close", this.clientDisconnected)
-    webSocketContext.on("feedback", this.feedback)
 }
 
 exports.clientDisconnected = function () {
     global.log.info("socketRoute", "clientDisconnected", "client disconnected")
 }
 
-exports.feedback = function(feedback) {
-    global.log.debug("socketRoute", "feedback", "feedback data: " + JSON.stringify(feedback))
+exports.message = function(message) {
+    global.log.debug("socketRoute", "message", "feedback data: " + message)
 }
 
 exports.init = function (serverApp) {
     // webSocketServer.on("connection", this.onClientConnected)
-    serverApp.ws('/remote', this.clientConnected)
+    const clientConnected = this.clientConnected
+    const clientMessage = this.message
+    const clientDisconnected = this.clientDisconnected
+
+    serverApp.ws('/remote', function (webSocketContext) {
+        clientConnected(webSocketContext)
+        webSocketContext.on("close", clientDisconnected)
+        webSocketContext.on("message", clientMessage)
+    })
 }

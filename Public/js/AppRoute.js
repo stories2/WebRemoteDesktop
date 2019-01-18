@@ -2,7 +2,7 @@ app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl : "/Template/index",
-            controller : null,
+            controller : "RemoteController",
             cache: false,
             disableCache: true,
         })

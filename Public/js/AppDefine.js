@@ -4,5 +4,7 @@ var LOG_LEVEL_DEBUG = 2;
 var LOG_LEVEL_WARN = 3;
 var LOG_LEVEL_ERROR = 4;
 
+var APP_NAME = "Web Remote Desktop"
+
 var TOAST_SHOW_SHORT = 800
 var TOAST_SHOW_LONG = 3000

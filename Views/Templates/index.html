@@ -1,1 +1,14 @@
-<h1>It Works!</h1>
+<div layout="column">
+    <div layout="column" layout-align="center center">
+        <canvas style="background-color: black; width: 1024px; height: 768px" remote stream="stream" connect="connect" ready="remoteDirectiveInit" width="1024" height="768"></canvas>
+    </div>
+    <div layout="row" layout-align="center center">
+        <md-input-container>
+            <label>Client list</label>
+            <md-select ng-model="client">
+                <md-option ng-repeat="client in clientList" ng-value="client">{{client.name}}</md-option>
+            </md-select>
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="onBtnConnectClicked()">Connect!</md-button>
+    </div>
+</div>

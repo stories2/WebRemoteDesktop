@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Firebase Drive</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/angular-csp.css">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="css/spinner.css">
+    <link rel="stylesheet" href="css/font-awesome-v5.4.2.css">
+    <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
+<div ng-app="WRDApp" layout-fill>
+    <div ng-layout="column" layout-fill>
+
+        <div ng-layout="row">
+            <md-toolbar class="md-hue-2" ng-controller="ToolbarController" ng-init="listenAuthStateChanged()">
+                <div class="md-toolbar-tools" >
+                    <!--<md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">-->
+                        <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>&ndash;&gt;-->
+                        <!--<img ng-src="{{userPictureUrl}}" ng-if="userPictureUrl" style="border-radius: 50%;width:32px;height: auto;">-->
+                    <!--</md-button>-->
+
+                    <h2 flex md-truncate>{{ title }}</h2>
+
+                    <div>
+                        <!--<md-button ng-controller="DeployController" ng-if="isUserSignedIn" class="md-icon-button" aria-label="Favorite" ng-click="onBtnPublishClicked()">-->
+                        <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>&ndash;&gt;-->
+                        <!--<i class="fas fa-upload"></i>-->
+                        <!--</md-button>-->
+
+                        <md-button ng-if="isUserSignedIn" class="md-icon-button" aria-label="More" ng-click="signOutUser()">
+                            <!--<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>-->
+                            <i class="fas fa-user-shield"></i>
+                        </md-button>
+                        <md-button ng-if="!isUserSignedIn" class="md-icon-button" aria-label="More" ng-click="signInUser()">
+                            <!--<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>-->
+                            <i class="fas fa-user-times"></i>
+                        </md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+        </div>
+
+        <div id="spinnerView">
+            <div class="loading-background">
+
+            </div>
+            <div class="spinner">
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </div>
+            <div class="loading-text">
+                잠시만요! <br>지금 아주 중요한 무언가가 돌아가고 있어요!
+                <footer class="spinner-created-by">
+                    spinner created by https://loading.io/css/
+                </footer>
+            </div>
+        </div>
+
+        <md-content style="height: calc(100% - 64px);" ng-view layout="column" >
+
+        </md-content>
+    </div>
+</div>
+
+<script src="lib/jquery-3.3.1.js"></script>
+
+<script src="lib/angular.js"></script>
+<script src="lib/angular-animate.js"></script>
+<script src="lib/angular-aria.js"></script>
+<script src="lib/angular-cookies.js"></script>
+<script src="lib/angular-loader.js"></script>
+<script src="lib/angular-message-format.js"></script>
+<script src="lib/angular-messages.js"></script>
+<script src="lib/angular-mocks.js"></script>
+<script src="lib/angular-parse-ext.js"></script>
+<script src="lib/angular-resource.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="lib/angular-sanitize.js"></script>
+<script src="lib/angular-touch.js"></script>
+<script src="lib/ng-file-upload-all.js"></script>
+<script src="lib/ng-file-upload.js"></script>
+<script src="lib/angular-material.min.js"></script>
+
+<script src="lib/firebase.js"></script>
+
+<script src="js/App.js"></script>
+<script src="js/AppRoute.js"></script>
+<script src="js/AppDefine.js"></script>
+<script src="js/AppService.js"></script>
+<script src="js/Controllers/Shared/ToolbarController.js"></script>
+<!--<script src="./assets/js/Controllers/default/DefaultPageController.js"></script>-->
+<!--<script src="./assets/js/Controllers/drive/DriveController.js"></script>-->
 </body>
 </html>

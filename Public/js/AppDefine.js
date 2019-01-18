@@ -8,3 +8,6 @@ var APP_NAME = "Web Remote Desktop"
 
 var TOAST_SHOW_SHORT = 800
 var TOAST_SHOW_LONG = 3000
+
+var WEB_SOCKET_LOCAL = "ws://localhost:5000/remote"
+var WEB_SOCKET_LIVE = "wss://web-remote-desktop.herokuapp.com/remote"

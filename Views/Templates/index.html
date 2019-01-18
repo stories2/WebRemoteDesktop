@@ -9,6 +9,6 @@
                 <md-option ng-repeat="client in clientList" ng-value="client">{{client.name}}</md-option>
             </md-select>
         </md-input-container>
-        <md-button class="md-raised md-primary" ng-click="onBtnConnectClicked()">Connect!</md-button>
+        <md-button class="md-raised md-primary" ng-click="onBtnConnectClicked()" ng-disabled="!connectBtnEnable">Connect!</md-button>
     </div>
 </div>

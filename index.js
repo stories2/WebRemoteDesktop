@@ -1,13 +1,23 @@
 //Packages
 const express = require('express')
-const PORT = process.env.PORT || 5000
+const expressWs = require('express-ws')
+// const socketServer = require('ws').Server;
 //Express
 const serverApp = express()
-//Modules
+//Routes
 const publicRoute = require('./Route/publicRoute')
+const socketRoute = require('./Route/socketRoute')
 //Global
 global.define = require('./Settings/defineManager')
 global.log = require('./Utils/logManager')
+
+//Env
+const PORT = process.env.PORT || 5000
+//Websocket
+// const wss = new socketServer({ server: serverApp, path: "/remote" });
+// socketRoute.init(wss)
+expressWs(serverApp)
+socketRoute.init(serverApp)
 //Config
 serverApp.get('/', publicRoute.hello)
 serverApp.listen(PORT, function(){
